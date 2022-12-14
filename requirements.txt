@@ -1,0 +1,5 @@
+dbhpgm @ git+https://github.com/contentsquare-ps/dbhpgm.git@v1.0.3
+
+gspread==3.7.0
+oauth2client==4.1.3
+pandas==1.4.3
