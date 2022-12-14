@@ -211,7 +211,7 @@ query_boucereturners = """
                                session_number,
                                session_time,
                                session_date,
-                               view_number, is_last, device_id
+                               view_number, is_last, device_id, session_number_of_transactions
 
 
 
