@@ -1,8 +1,8 @@
 # Session level
 query_conversionrate = """ 
-SELECT  device_id, uniqExact(user_id) as nbrofusers 
-, uniqExactIf(user_id, session_transactions_revenue_cents >0 ) as transaction_done,
-       (transaction_done / nbrofusers) as cvr
+SELECT device_id,  uniqExact(user_id) as nbrofusers , (transaction_done / nbrofusers) as cvr,
+ uniqExactIf(user_id, session_transactions_revenue_cents >0 ) as transaction_done
+       
 FROM views
 WHERE project_id = {project_id}
 AND session_date >= '{start_date}'
@@ -12,26 +12,40 @@ GROUP BY device_id
 SETTINGS distributed_group_by_no_merge = 0;
   """
 
-query_nbrofsessionspervisitor = """ 
-SELECT device_id, nbrofsessions, uniqExact(user_id) as nbrofusers
+query_nbrofsessionspervisitor = """
+
+ 
+SELECT multiIf(device_id = 1, 'Desktop', device_id = 2, 'Mobile','other' ) AS device_id, nbrofsessions, nbrofusers/ totalnumberofusers as rationumberofusers,  uniqExact(t1.user_id) as nbrofusers,  totalnumberofusers
     FROM
     (
 SELECT  uniqExact(session_number) as sum_session, user_id ,
-       if(sum_session >5, 5, sum_session) as nbrofsessions, device_id
+       if(sum_session >5, 5, sum_session) as nbrofsessions, device_id, 'a' as test
 
-
-
-FROM views
+        FROM views
 WHERE project_id = {project_id}
 AND session_date >= '{start_date}'
 AND session_date <= '{end_date}'
 AND device_id in ({device_id})
 
-GROUP BY user_id, device_id
-    )
-GROUP BY nbrofsessions, device_id
-ORDER BY nbrofsessions asc
-SETTINGS distributed_group_by_no_merge = 0;
+GROUP BY user_id , device_id
+    )as t1
+right join
+        ( select uniqExact(user_id) as totalnumberofusers, 'a' as test
+        FROM views
+WHERE project_id = {project_id}
+AND session_date >= '{start_date}'
+AND session_date <= '{end_date}'
+AND device_id in ({device_id})
+
+            ) as t2
+           on t1.test = t2.test
+
+
+GROUP BY nbrofsessions, device_id , totalnumberofusers
+ORDER BY  nbrofsessions asc
+ SETTINGS distributed_group_by_no_merge = 0; 
+ 
+
   """
 
 query_nbrofsessionsbeforeconverting = """ 
@@ -359,6 +373,7 @@ query_boucerspagelevelcomingbackonthesite = """   SELECT user_id_filter.device_i
 
       -- Put info about the first session
       FROM (
+      WITH ({page_condition}) as Page
 
                select distinct user_id,
                                session_id,
@@ -375,7 +390,7 @@ query_boucerspagelevelcomingbackonthesite = """   SELECT user_id_filter.device_i
         AND session_date >= '{start_date}'
         AND session_date <= '{end_date}'
         AND device_id in ({device_id})
-      
+      AND Page
                ) as user_id_filter
 
                LEFT JOIN

@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "slidesautomation-311609",
+  "private_key_id": "396da2e87622c0c92cbfbc519c45be820587a494",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDEz6HuBadmJ52D\nHkahhDFJoh9nRZvfmaz50ZFCl1m5p/8VmHxFzeqRaj2PU1uxqmvl4vU6UIuhiWOS\nxGmhhsZA3rpFKE14HbxGVqK+xgtN+CShQKqjHvnx+NTA42Kov10czDNENhEx/j3a\n2qLtJPNK9+ZpXRqWUxOQPLXJ/dWDeJJT9HUFXXoRTgKaelotrrlhljCLbvH1drl/\nlTiH+ohDLO3ZCyZx1ROzeJ/OaisxpWKaM+3LbkflwkmSe9uOkYvlYiaGS0UxbOVA\nQqUtpvKX7Rs86PVNzLprZ6YfIw3ZHnsAd4Yjk5nJyU8ZNjRUcwC0HYsOWASCzNU3\nlepDo0PdAgMBAAECggEAAhYcZphPP708RXtQ7t3motvx3selYR+xLn3K/yx5EkeG\nY/13lcrayXtZlzcgQfgnSCrZhCp97HK3KENmRkTWPbJOwbRta9BO4mUBOSoCzSsM\nAlyb4npN1oOXh8rxTQ4oR8mfYoH7OS8ziyolr4Nkg98wZV4MDdtoGe+W0sMa3Beq\nmTuKZD1tGnBKwuK5HBNB40Pv4dVU2dumIUaRdZDK9ZXjxGNA4XhEIbxlSGa5fuVj\nVhhqkerqigiVVv2eYSOGF+tvgDAGlNm7ClOey6Jg0y1raI+lnEZ6dVCajFta0cwJ\njbH+28UosRjjTM9lDJ53x8XAAX6mV+P0/mcYzhlEKQKBgQDzIawn45VRTouKvg2H\nHKUwvbelHQw8Ina7O93AnX0YZu6V4/3VofptrafFdOHNpbquFlN+pd81yc59iALn\n4/YOUmV33VYdekce+dMho+eImD5vEzVA6SMV6Qo1NV7aKuI4Y51w++ze5jHzc8eT\nCnvOvmI5KnrxuLNzrBpKmGGVBQKBgQDPOlZxI7EAvRY5J4IbFg+JAA2ny+Z3HPjP\n9MoVBcGwNF2IxTwDcQJQiPvdphTLH8+4e34sg28HcR4gZSIhighh3fYrzhJxLiSd\n/3HFlgcZGOzSTraubyGuKnXPoGIHl3FIsvFG5MQhUteaZhMF4NnYm4katmQuIlS/\npohaC/Sq+QKBgQDHgPz0KmJvOmV0rqkJEm9WhIa6HRDaE2mcD+7RzClHKcdjBZdX\ngres4g9GDrfu+Kwrh7Rxuwhi6brf9Qh1YfCZJfGPHvc37wuHFnayJv2pb0vj9z3+\nio+4veYbbTTtDr1cihk6Ce7/pKKeY4YDWVnodv7Aa+RAj0/pffKA/XMtRQKBgCz9\n+Iil/Ccx5qJQHqJs3sCa/1wAHDCeXLMh7cI0tsHgDLLGR+pjXeJIa47LIVacuIfQ\nYCuf+bo+6BCWhJuNkZZWD72hB0YFg7O+I2CH21CqpbhfmLA0trZOx7dllgMZ8WGc\nYGBJCQBHMUJ3iQfMst+hnVnsYcHWeFoH+TC7ycpZAoGAOSnaBL4aHnjs1jpMF2dL\nSqoX5VvBYf6do4/X9nVZNajvAU52NYjFVTvzs2HamhmBvF9oE+7RFzuEPNCk7Gzd\nl8W7P5qczos8Gdu2+fGgSh16GGKRANmEfP0JZhPboIHyLzrBuX5Gsi0y4kOZiCnY\n3IHsZyRG3gBnDAdGmPi7dJ8=\n-----END PRIVATE KEY-----\n",
+  "client_email": "automater-da@slidesautomation-311609.iam.gserviceaccount.com",
+  "client_id": "104014351507445978291",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/automater-da%40slidesautomation-311609.iam.gserviceaccount.com"
+}
