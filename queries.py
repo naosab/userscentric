@@ -293,27 +293,39 @@ query_boucereturners = """
 # Page level
 
 query_nbrofsessionspervisitorpagelevel = """ 
-SELECT device_id, nbrofsessions, uniqExact(user_id) as nbrofusers
+
+SELECT  device_id ,nbrofsessions, nbrofusers/ totalnumberofusers as rationumberofusers,  uniqExact(t1.user_id) as nbrofusers,  totalnumberofusers
     FROM
     (
-   WITH ({page_condition}) as Page
+    WITH ({page_condition}) as Page
 SELECT  uniqExact(session_number) as sum_session, user_id ,
-       if(sum_session >5, 5, sum_session) as nbrofsessions, device_id
+       if(sum_session >5, 5, sum_session) as nbrofsessions, 'a' as test, device_id
 
-
-
-FROM views
+        FROM views
+WHERE project_id = {project_id}
+AND session_date >= '{start_date}'
+AND session_date <= '{end_date}'
+AND device_id in ({device_id})
+AND  Page
+GROUP BY user_id, device_id
+    )as t1
+inner join
+        ( WITH ({page_condition}) as Page
+        select uniqExact(user_id) as totalnumberofusers, 'a' as test, device_id
+        FROM views
 WHERE project_id = {project_id}
 AND session_date >= '{start_date}'
 AND session_date <= '{end_date}'
 AND device_id in ({device_id})
 AND Page
-GROUP BY user_id, device_id
-    )
-GROUP BY nbrofsessions, device_id
-ORDER BY nbrofsessions asc
-SETTINGS distributed_group_by_no_merge = 0;
-  """
+GROUP  By device_id
+            ) as t2
+           on t1.test = t2.test and t1.device_id = t2.device_id
+GROUP BY nbrofsessions,  totalnumberofusers, device_id
+ORDER BY  nbrofsessions asc
+ SETTINGS distributed_group_by_no_merge = 0;
+
+ """
 
 query_returonthesiteafterexitingonapage = """ 
 SELECT
