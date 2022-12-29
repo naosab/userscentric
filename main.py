@@ -95,6 +95,36 @@ if __name__ == "__main__":
    write_gsheet(GSHEET_CONN, result_db, 'nbrofsessionspervisitorpagelevel')
    print(f'nbrofsessionspervisitorpagelevel completed')
 
+   # if __name__ == "__main__":
+   #     result_db = get_query_results(QUERY=query_avgvisitonthepagebeforeconverting, project_id=project_id,
+   #                                   page_condition=page_condition,
+   #                                   start_date=start_date, end_date=end_date,
+   #                                   device_id=device_id)
+   #     GSHEET_CONN = connect_gsheet(sheet_id=sheet_id)
+   #     write_gsheet(GSHEET_CONN, result_db, 'avgvisitonthepagebeforeconverting')
+   #     print(f'avgvisitonthepagebeforeconverting completed')
+
+# Query 9 connect to the gsheet - nbr of visits on the page before making a transaction to do
+if __name__ == "__main__":
+   result_db = get_query_results(QUERY=query_nbrofsessionspervisitorpagelevel, project_id=project_id,
+                                 page_condition=page_condition,
+                                 start_date=start_date, end_date=end_date,
+                                 device_id=device_id)
+   GSHEET_CONN = connect_gsheet(sheet_id=sheet_id)
+   write_gsheet(GSHEET_CONN, result_db, 'nbrofsessionspervisitorpagelevel')
+   print(f'nbrofsessionspervisitorpagelevel completed')
+
+# Query 10 connect to the gsheet - nbr of visits on the page before making a transaction to do
+   if __name__ == "__main__":
+       result_db = get_query_results(QUERY=query_avgvisitonthepagebeforeconverting, project_id=project_id,
+                                     page_condition=page_condition,
+                                     start_date=start_date, end_date=end_date,
+                                     device_id=device_id)
+       GSHEET_CONN = connect_gsheet(sheet_id=sheet_id)
+       write_gsheet(GSHEET_CONN, result_db, 'avgvisitonthepagebeforeconverting')
+       print(f'avgvisitonthepagebeforeconverting completed')
+
+
 
 # Query 9 connect to the gsheet - returonthesiteafterexitingonapage
 if __name__ == "__main__":
@@ -106,6 +136,18 @@ if __name__ == "__main__":
    write_gsheet(GSHEET_CONN, result_db, 'returonthesiteafterexitingonapage')
    print(f'returonthesiteafterexitingonapage completed')
 
+   # Query 9 connect to the gsheet - dayreturonthesiteafterexitingonapage
+   if __name__ == "__main__":
+       result_db = get_query_results(QUERY=query_dayreturonthesiteafterexitingonapage, project_id=project_id,
+                                     page_condition=page_condition,
+                                     start_date=start_date, end_date=end_date,
+                                     device_id=device_id)
+       GSHEET_CONN = connect_gsheet(sheet_id=sheet_id)
+       write_gsheet(GSHEET_CONN, result_db, 'dayreturonthesiteafterexitingonapage')
+       print(f'dayreturonthesiteafterexitingonapage completed')
+
+
+
 # Query 10 connect to the gsheet - nbr of sessions per visitors page level
 if __name__ == "__main__":
    result_db = get_query_results(QUERY=query_boucerspagelevelcomingbackonthesite, project_id=project_id,
@@ -115,6 +157,17 @@ if __name__ == "__main__":
    GSHEET_CONN = connect_gsheet(sheet_id=sheet_id)
    write_gsheet(GSHEET_CONN, result_db, 'boucerspagelevelcomingbackonthesite')
    print(f'boucerspagelevelcomingbackonthesite completed')
+
+
+# Query 11 connect to the gsheet - nbr of sessions per visitors page level
+if __name__ == "__main__":
+   result_db = get_query_results(QUERY=query_boucerspagelevelcomingbackonthesameurl, project_id=project_id,
+                                 page_condition=page_condition,
+                                 start_date=start_date, end_date=end_date,
+                                 device_id=device_id)
+   GSHEET_CONN = connect_gsheet(sheet_id=sheet_id)
+   write_gsheet(GSHEET_CONN, result_db, 'boucerspagelevelcomingbackonthesameurl')
+   print(f'boucerspagelevelcomingbackonthesameurl completed')
 
 
 
